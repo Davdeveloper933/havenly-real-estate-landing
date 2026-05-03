@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@layer theme {
+  :root {
+    --background: #ffffff;
+    --foreground: #1a1a1a;
+    --primary: #d7ae58;
+    --primary-foreground: #ffffff;
+    --secondary: #f3f4f6;
+    --secondary-foreground: #838383;
+    --heading-foreground: #18181b;
+    --grayscale: #fcfcfc;
+    --warning: #fde8e8;
+    --warning-foreground: #e02424;
+    --ring: #d7ae58;
+    --border: #d1d5db;
+    --gray-300: #dcdcdc;
+    --input: #6b7280;
+    --font-urbanist: "Urbanist", sans-serif;
+    --font-abeezee: "Abeezee", sans-serif;
+  }
+}
+
+@theme {
+  --navbar-background: oklch(0.98 0.01 240);
+  --color-gray-300: var(--gray-300);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-heading: var(--heading-foreground);
+  --color-grayscale: var(--grayscale);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-ring: var(--ring);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --font-sans: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
+  --font-footer-heading:
+    var(--font-abeezee), ui-sans-serif, system-ui, sans-serif;
+  --container-width: 1280px;
+  --container-side-padding: 24px;
+  --container-max-width: calc(
+    var(--container-width) + (2 * var(--container-side-padding))
+  );
+  --text-h4: 2.5rem;
+  --text-h5: 2rem;
+  --breakpoint-xs: 30rem;
+}
+
+@layer utilities {
+  .container {
+    @apply mx-auto max-w-max-width px-(--container-side-padding);
+  }
+}
+
+@layer components {
+  .logo {
+    @apply flex items-center shrink-0 gap-2;
+  }
+  .logo__text {
+    @apply text-2xl;
+  }
+  .nav {
+    @apply flex xl:mr-4 xl:ml-40 text-white font-semibold rounded-lg p-1 text-sm items-center;
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .nav__link {
+    @apply px-6 py-2.5 rounded-sm flex transition-all duration-500;
+  }
+  .nav__link:hover {
+    @apply bg-white text-primary;
+  }
+  .heading {
+    @apply text-3xl md:text-4xl lg:text-5xl text-heading max-w-132;
+    line-height: 120%;
+  }
+  .btn {
+    @apply rounded-lg px-5 py-3 font-semibold;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-foreground;
+  }
+  .btn-outline {
+    @apply bg-white px-3 py-2 border-primary border;
+  }
+  .card {
+    @apply rounded-lg flex flex-col;
+  }
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+button,
+a,
+[role="button"] {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-semibold tracking-normal;
+}
+
+input,
+textarea {
+  @apply focus:outline-none placeholder:tracking-wide placeholder:text-secondary-foreground;
+}
+
+textarea {
+  max-height: 188px;
+}
+
+.hero {
+  background-image: url("@/assets/img/hero.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.nav__link__active {
+  @apply bg-white text-primary;
+}
+
+.card-swiper .swiper-slide {
+  height: auto !important;
+}
